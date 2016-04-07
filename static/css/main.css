@@ -1,0 +1,18 @@
+
+@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url("pygment.css");
+
+/*body {
+    font-family: 'Roboto','Helvetica','Arial','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;
+}*/
+
+.ui.menu {
+  margin: 0em 0em 2em;
+  padding: 2em 0em;
+  border-radius: 0;
+}
+
+.ui.footer.segment {
+margin: 5em 0em 0em;
+padding: 5em 0em;
+}
