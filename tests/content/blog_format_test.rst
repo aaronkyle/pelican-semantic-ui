@@ -1,32 +1,58 @@
-################
-Blog Format Test
-################
+#######################
+reStructuredText Format
+#######################
 
 :date: 2010-10-03
 :modified: 2010-10-04 18:40
 :tags: rst
 :category: test
-:slug: blog-format-test
+:slug: restructuredtext-format
 :summary: Test rst format
 
 Inline Markup
 =============
 
-- *emphasis*
-- **strong emphasis**
-- `interpreted text`
-- ``inline literal``
+- *emphasis* : <em>
+- **strong emphasis** : <strong>
+- `interpreted text` : <city>
+- ``inline literal`` : <tt>
 
 中文 Inline Markup
-++++++++++++++++++
+******************
 
 - 這是\ *強調*\ 用法
 - 這是\ **強調**\ 用法
 - 這是\ `解譯文`\ 用法
 - 這是\ ``行內``\ 用法
 
+Lists
+=====
+
+- This is item 1 
+- This is item 2
+
+3. This is the first item 
+4. This is the second item
+#. This item is auto-enumerated
+
+what 
+  Definition lists associate a term with 
+  a definition. 
+
+Field Lists:
+
+:Authors: 
+    Tony J. (Tibs) Ibbs, 
+    David Goodger
+    (and sundry other good-natured folks)
+
+:Version: 1.0 of 2001/08/08 
+:Dedication: To my father.
+
 Hyper Link
 ==========
+
+http://docutils.sf.net/ : A standalone hyperlink.
 
 External hyperlinks, like Python_.
 
@@ -92,35 +118,11 @@ Implicit Hyperlink Targets:
 - footnotes 5_
 - citations this_
 
-Lists
-=====
-
-- This is item 1 
-- This is item 2
-
-+ This is item 1 
-+ This is item 2
-
-3. This is the first item 
-4. This is the second item
-5. This item is auto-enumerated
-
-what 
-  Definition lists associate a term with 
-  a definition. 
-
-:Authors: 
-    Tony J. (Tibs) Ibbs, 
-    David Goodger
-    (and sundry other good-natured folks)
-
-:Version: 1.0 of 2001/08/08 
-:Dedication: To my father.
-
 Blocks
 ======
 
-Block quotes are just:
+Block quotes are just :
+***********************
 
     Indented paragraphs,
 
@@ -128,7 +130,7 @@ Block quotes are just:
 
 A paragraph containing only two colons 
 indicates that the following indented 
-or quoted text is a literal block. 
+or quoted text is a **literal block**. 
 
 :: 
 
@@ -148,11 +150,11 @@ or quoted text is a literal block.
 |     are preserved. 
 | Continuation lines are wrapped 
 
-
 Tables
 ======
 
 Grid table:
+***********
 
 +------------+------------+-----------+ 
 | Header 1   | Header 2   | Header 3  | 
@@ -167,6 +169,7 @@ Grid table:
 +------------+------------+-----------+
 
 Simple table:
+*************
 
 =====  =====  ====== 
    Inputs     Output 
@@ -179,21 +182,31 @@ False  True   True
 True   True   True 
 =====  =====  ======
 
-Other
-=====
+Interpreted Text Role (inline)
+==============================
 
-.. This text will not be shown 
-   (but, for instance, in HTML might be 
-   rendered as an HTML comment)
+.. role:: python(code)
+   :language: python
 
-----
+Basically, it was almost rewritten. :python:`run('pelican -s pelicanconf.py')` Some dependencies from the old version are dead. Swig is officialy dead, and AngularJS, well, it's not dead, but it's migrating to Angular 2, so it was more easy to remove it.
 
-Inline Role
-===========
+.. role:: raw-html(raw)
+   :format: html
 
-Basically, it was almost rewritten. :code:`run('pelican -s pelicanconf.py')` Some dependencies from the old version are dead. Swig is officialy dead, and AngularJS, well, it's not dead, but it's migrating to Angular 2, so it was more easy to remove it.
+If there just *has* to be a line break here,
+:raw-html:`<br />`
+it can be accomplished with a "raw"-derived role.
+But the line block syntax should be considered first.
 
 - E = mc\ :sup:`2`
+
+math :
+******
+
+The math role marks its content as mathematical notation (inline formula).
+The input format is LaTeX math syntax without the “math delimiters“ ($ $), for example:
+
+Trigonometric functions : :math:`\cos (2\theta) = \cos^2 \theta - \sin^2 \theta`
 
 Block Directive
 ===============
@@ -220,3 +233,28 @@ Block Directive
    :alt: map to buried treasure
 
    This is the caption of the figure (a simple paragraph).
+
+Other
+=====
+
+Substitution References and Definitions
+***************************************
+
+Substitutions are like inline directives, allowing graphics and arbitrary constructs within text.
+
+The |biohazard| symbol must be used on containers used to dispose of medical waste.
+
+.. |biohazard| image:: http://docutils.sourceforge.net/docs/user/rst/images/biohazard.png
+
+Transitions
+***********
+
+A transition marker is a horizontal line of 4 or more repeated punctuation characters.
+
+----
+
+Comments :
+**********
+.. This text will not be shown 
+   (but, for instance, in HTML might be 
+   rendered as an HTML comment)
