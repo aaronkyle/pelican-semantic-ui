@@ -185,10 +185,15 @@ True   True   True
 Interpreted Text Role (inline)
 ==============================
 
+Code :
+******
+
+:code:`for i in range(10)`
+
 .. role:: python(code)
    :language: python
 
-Basically, it was almost rewritten. :python:`run('pelican -s pelicanconf.py')` Some dependencies from the old version are dead. Swig is officialy dead, and AngularJS, well, it's not dead, but it's migrating to Angular 2, so it was more easy to remove it.
+:python:`for i in range(10)`
 
 .. role:: raw-html(raw)
    :format: html
