@@ -44,10 +44,11 @@ def serve():
     sys.stderr.write('Serving on port {0} ...\n'.format(PORT))
     server.serve_forever()
 
+@task
 def gh_pages():
     """Publish to GitHub Pages"""
     clean()
     production_build()
 
-    run("ghp-import -b gh-pages demo/output")
-    run("git push origin  gh-pages")
+    run("ghp-import -b gh-pages output")
+    run("git push origin gh-pages")
