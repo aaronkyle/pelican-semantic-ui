@@ -1,5 +1,5 @@
 node_modules/
 static/semantic/
-tests/output/
+demo/output/
 __pycache__/
 .DS_Store
