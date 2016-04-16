@@ -5,7 +5,7 @@ reStructuredText Format
 :date: 2010-10-03
 :modified: 2010-10-04 18:40
 :tags: rst
-:category: test
+:category: demo
 :slug: restructuredtext-format
 :summary: Test rst format
 
