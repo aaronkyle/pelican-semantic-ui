@@ -2,8 +2,8 @@
 Pelican Semantic Plugin Domo
 ############################
 
-:date: 2010-11-03
-:modified: 2010-11-04
+:date: 2016-04-08
+:modified: 2016-04-16
 :tags: plugin, rst
 :category: demo
 :slug: pelican-semantic-ui-plugin-demo

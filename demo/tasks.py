@@ -10,7 +10,6 @@ import socketserver
 
 from pelican.server import ComplexHTTPRequestHandler
 
-
 DEPLOY_PATH = 'output'
 
 # Port for `serve`
@@ -29,6 +28,10 @@ def build():
     run('pelican -s pelicanconf.py')
 
 @task
+def production_build():
+    run('pelican -s publishconf.py')
+
+@task
 def serve():
     """Serve site at http://localhost:8000/"""
     os.chdir(DEPLOY_PATH)
@@ -40,3 +43,11 @@ def serve():
 
     sys.stderr.write('Serving on port {0} ...\n'.format(PORT))
     server.serve_forever()
+
+def gh_pages():
+    """Publish to GitHub Pages"""
+    clean()
+    production_build()
+
+    run("ghp-import -b gh-pages demo/output")
+    run("git push origin  gh-pages")

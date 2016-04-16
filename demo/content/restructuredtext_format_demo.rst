@@ -2,8 +2,8 @@
 reStructuredText Format
 #######################
 
-:date: 2010-10-03
-:modified: 2010-10-04 18:40
+:date: 2016-04-07
+:modified: 2016-04-16 21:40
 :tags: rst
 :category: demo
 :slug: restructuredtext-format
