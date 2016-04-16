@@ -1,0 +1,3 @@
+[submodule "pelican-go-semantic-ui"]
+	path = demo/plugins/pelican-go-semantic-ui
+	url = https://github.com/yichiuan/pelican-go-semantic-ui.git
