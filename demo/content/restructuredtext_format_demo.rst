@@ -15,7 +15,7 @@ Inline Markup
 - *emphasis* : <em>
 - **strong emphasis** : <strong>
 - `interpreted text` : <city>
-- ``inline literal`` : <tt>
+- ``inline literal`` : <code>
 
 中文 Inline Markup
 ******************
@@ -39,7 +39,8 @@ what
   Definition lists associate a term with 
   a definition. 
 
-Field Lists:
+Field Lists :
+*************
 
 :Authors: 
     Tony J. (Tibs) Ibbs, 
