@@ -1,6 +1,6 @@
-############################
+****************************
 Pelican Semantic Plugin Domo
-############################
+****************************
 
 :date: 2016-04-08
 :modified: 2016-04-16
@@ -14,7 +14,7 @@ Tables
 
 table directive with class option
 
-.. code-block:: ReST
+.. code-block:: rst
 
     .. table::
         :class: ui very basic table
