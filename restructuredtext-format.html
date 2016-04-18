@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>reStructuredText Format</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/reset.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/site.min.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/container.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/menu.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/segment.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/table.min.css" />
+
+  <link rel="stylesheet" href="http://yichiuan.github.io/pelican-semantic-ui/theme/css/pygment.css" />
+  <link rel="stylesheet" href="http://yichiuan.github.io/pelican-semantic-ui/theme/css/main.css" />
+
+</head>
+<body>
+<header class="ui borderless inverted menu">
+  <nav class="ui text container">
+    <a href="#" class="header item">Pelican Semantic Demo</a>
+      <a class="item" href="http://yichiuan.github.io/pelican-semantic-ui/category/demo.html">demo</a>
+  </nav>
+</header>
+<main class="ui text container">
+<article>
+  <header>
+    <h1>
+      <a href="http://yichiuan.github.io/pelican-semantic-ui/restructuredtext-format.html" rel="bookmark" title="Permalink to reStructuredText Format">reStructuredText Format</a>
+    </h1>
+    <p>Posted on <time datetime="2016-04-07T00:00:00+08:00">2016-04-07</time> in <a href="http://yichiuan.github.io/pelican-semantic-ui/category/demo.html">demo</a></p>
+  </header>
+  <h2 id="inline-markup">Inline Markup</h2>
+<ul>
+<li><code>
+*emphasis*</code>
+ --&gt; <em>emphasis</em> (tag &lt;em&gt;)</li>
+<li><code>
+**strong emphasis**</code>
+ --&gt; <strong>strong emphasis</strong> (tag &lt;strong&gt;)</li>
+<li><code>
+`interpreted text`</code>
+ --&gt; <cite>interpreted text</cite> (tag &lt;cite&gt;)</li>
+<li><code>
+``inline literal``</code>
+ --&gt; <code>
+inline literal</code>
+ (tag &lt;code&gt;)</li>
+</ul>
+<h3 id="id1">中文 Inline Markup</h3>
+<ul>
+<li>這是<em>強調</em>用法</li>
+<li>這是<strong>強調</strong>用法</li>
+<li>這是<cite>解譯文</cite>用法</li>
+<li>這是<code>
+行內</code>
+用法</li>
+</ul>
+<h2 id="lists">Lists</h2>
+<div class="highlight"><pre><span></span><span class="m">-</span> This is item 1
+<span class="m">-</span> This is item 2
+</pre></div>
+<p>Result :</p>
+<ul>
+<li>This is item 1</li>
+<li>This is item 2</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="m">3.</span> This is the first item
+<span class="m">4.</span> This is the second item
+<span class="m">#.</span> This item is auto-enumerated
+</pre></div>
+<p>Result :</p>
+<ol start="3">
+<li>This is the first item</li>
+<li>This is the second item</li>
+<li>This item is auto-enumerated</li>
+</ol>
+<h3 id="definition-lists">Definition Lists :</h3>
+<div class="highlight"><pre><span></span>what
+  Definition lists associate a term with
+  a definition.
+</pre></div>
+<p>Result :</p>
+<dl>
+<dt>what</dt>
+<dd>Definition lists associate a term with
+a definition.</dd>
+</dl>
+<h3 id="field-lists">Field Lists :</h3>
+<div class="highlight"><pre><span></span><span class="nc">:Authors:</span>
+    Tony J. (Tibs) Ibbs,
+    David Goodger
+    (and sundry other good-natured folks)
+
+<span class="nc">:Version:</span> <span class="nf">1.0 of 2001/08/08</span>
+<span class="nc">:Dedication:</span> <span class="nf">To my father.</span>
+</pre></div>
+<p>Result :</p>
+<table class="ui definition table">
+<tbody>
+<tr><td>Authors:</th><td>Tony J. (Tibs) Ibbs,
+David Goodger
+(and sundry other good-natured folks)</td>
+</tr>
+<tr><td>Version:</th><td>1.0 of 2001/08/08</td>
+</tr>
+<tr><td>Dedication:</th><td>To my father.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hyper-link">Hyper Link</h2>
+<div class="highlight"><pre><span></span>http://docutils.sf.net/ : A standalone hyperlink.
+
+External hyperlinks, like Python_.
+
+<span class="p">..</span> <span class="nt">_Python:</span> http://www.python.org/
+
+External hyperlinks (embedded URIs), like <span class="s">`Python </span><span class="si">&lt;http://www.python.org/&gt;</span><span class="s">`_</span>.
+</pre></div>
+<p>Result :</p>
+<p><a class="reference external" href="http://docutils.sf.net/">http://docutils.sf.net/</a> : A standalone hyperlink.</p>
+<p>External hyperlinks, like <a class="reference external" href="http://www.python.org/">Python</a>.</p>
+<p>External hyperlinks (embedded URIs), like <a class="reference external" href="http://www.python.org/">Python</a>.</p>
+<div class="highlight"><pre><span></span><span class="s">`phrase reference`_</span>
+
+inline internal target _<span class="nv">`phrase reference`</span> 。
+
+Internal crossreferences, like example_.
+
+<span class="p">..</span> <span class="nt">_example:</span>
+
+This is an example crossreference target.
+</pre></div>
+<p>Result :</p>
+<p><a class="reference internal" href="#phrase-reference">phrase reference</a></p>
+<p>inline internal target <span class="target" id="phrase-reference">phrase reference</span> 。</p>
+<p>Internal crossreferences, like <a class="reference internal" href="#example">example</a>.</p>
+<p id="example">This is an example crossreference target.</p>
+<h3 id="footnote-references">Footnote References</h3>
+<div class="highlight"><pre><span></span>Footnote references, like <span class="s">[5]_</span>.
+Note that footnotes may get
+rearranged, e.g., to the bottom of
+the &quot;page&quot;.
+
+<span class="p">..</span> <span class="nt">[5]</span> A numerical footnote. Note
+   there&#39;s no colon after the <span class="s">``]``</span>.
+</pre></div>
+<p>Result :</p>
+<p>Footnote references, like <a class="footnote-reference" href="#id4" id="id3">[5]</a>.
+Note that footnotes may get
+rearranged, e.g., to the bottom of
+the &quot;page&quot;.</p>
+<table class="docutils footnote" id="id4">
+<tbody>
+<tr><td class="label"><a class="fn-backref" href="#id3">[5]</a></td><td>A numerical footnote. Note
+there's no colon after the <code>
+]</code>
+.</td></tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span>Autonumbered footnotes are
+possible, like using <span class="s">[#]_</span> and <span class="s">[#]_</span>.
+
+<span class="p">..</span> <span class="nt">[#]</span> This is the first one.
+<span class="p">..</span> <span class="nt">[#]</span> This is the second one.
+</pre></div>
+<p>Result :</p>
+<p>Autonumbered footnotes are
+possible, like using <a class="footnote-reference" href="#id7" id="id5">[1]</a> and <a class="footnote-reference" href="#id8" id="id6">[2]</a>.</p>
+<table class="docutils footnote" id="id7">
+<tbody>
+<tr><td class="label"><a class="fn-backref" href="#id5">[1]</a></td><td>This is the first one.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" id="id8">
+<tbody>
+<tr><td class="label"><a class="fn-backref" href="#id6">[2]</a></td><td>This is the second one.</td></tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span>They may be assigned &#39;autonumber
+labels&#39; - for instance,
+<span class="s">[#fourth]_</span> and <span class="s">[#third]_</span>.
+
+<span class="p">..</span> <span class="nt">[#third]</span> a.k.a. third_
+
+<span class="p">..</span> <span class="nt">[#fourth]</span> a.k.a. fourth_
+</pre></div>
+<p>Result :</p>
+<p>They may be assigned 'autonumber
+labels' - for instance,
+<a class="footnote-reference" href="#fourth" id="id9">[4]</a> and <a class="footnote-reference" href="#third" id="id10">[3]</a>.</p>
+<table class="docutils footnote" id="third">
+<tbody>
+<tr><td class="label"><a class="fn-backref" href="#id10">[3]</a></td><td>a.k.a. <a class="reference internal" href="#third">third</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" id="fourth">
+<tbody>
+<tr><td class="label"><a class="fn-backref" href="#id9">[4]</a></td><td>a.k.a. <a class="reference internal" href="#fourth">fourth</a></td></tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span>Citation references, like <span class="s">[CIT2002]_</span>.
+Note that citations may get
+rearranged, e.g., to the bottom of
+the &quot;page&quot;.
+
+<span class="p">..</span> <span class="nt">[CIT2002]</span> A citation
+   (as often used in journals).
+</pre></div>
+<p>Result :</p>
+<p>Citation references, like <a class="citation-reference" href="#cit2002" id="id11">[CIT2002]</a>.
+Note that citations may get
+rearranged, e.g., to the bottom of
+the &quot;page&quot;.</p>
+<table class="docutils citation" id="cit2002">
+<tbody>
+<tr><td class="label"><a class="fn-backref" href="#id11">[CIT2002]</a></td><td>A citation
+(as often used in journals).</td></tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span>Citation labels contain alphanumerics,
+underlines, hyphens and fullstops.
+Case is not significant.
+
+Given a citation like <span class="s">[this]_</span>, one
+can also refer to it like this_.
+
+<span class="p">..</span> <span class="nt">[this]</span> here.
+</pre></div>
+<p>Result :</p>
+<p>Citation labels contain alphanumerics,
+underlines, hyphens and fullstops.
+Case is not significant.</p>
+<p>Given a citation like <a class="citation-reference" href="#this" id="id12">[this]</a>, one
+can also refer to it like <a class="reference internal" href="#this">this</a>.</p>
+<table class="docutils citation" id="this">
+<tbody>
+<tr><td class="label"><a class="fn-backref" href="#id12">[this]</a></td><td>here.</td></tr>
+</tbody>
+</table>
+<h3 id="implicit-hyperlink-targets">Implicit Hyperlink Targets :</h3>
+<ul>
+<li>section titles <a class="reference internal" href="#id1">中文 Inline Markup</a></li>
+<li>footnotes <a class="reference internal" href="#id4">5</a></li>
+<li>citations <a class="reference internal" href="#this">this</a></li>
+</ul>
+<h2 id="blocks">Blocks</h2>
+<h3 id="block-quotes-are-just">Block quotes are just :</h3>
+<div class="highlight"><pre><span></span>Block quotes
+
+    Indented paragraphs,
+
+        and they may nest.
+</pre></div>
+<p>Result :</p>
+<p>Block quotes</p>
+<blockquote>
+<p>Indented paragraphs,</p>
+<blockquote>
+and they may nest.</blockquote>
+</blockquote>
+<div class="highlight"><pre><span></span>A paragraph containing only two colons
+indicates that the following indented
+or quoted text is a <span class="gs">**literal block**</span>.
+
+<span class="se">::</span>
+
+<span class="s">  Whitespace, newlines, blank lines, and</span>
+<span class="s">  all kinds of markup (like *this* or</span>
+<span class="s">  \this) is preserved by literal blocks.</span>
+
+<span class="s">  The paragraph containing only &#39;::&#39;</span>
+<span class="s">  will be omitted from the result.</span>
+</pre></div>
+<p>Result :</p>
+<p>A paragraph containing only two colons
+indicates that the following indented
+or quoted text is a <strong>literal block</strong>.</p>
+<pre class="literal-block">
+Whitespace, newlines, blank lines, and
+all kinds of markup (like *this* or
+\this) is preserved by literal blocks.
+
+The paragraph containing only '::'
+will be omitted from the result.
+</pre>
+<div class="highlight"><pre><span></span><span class="o">|</span> Line blocks are useful for addresses,
+<span class="o">|</span> verse, and adornment-free lists.
+|
+<span class="o">|</span> Each new line begins with a
+<span class="o">|</span> vertical bar (&quot;|&quot;).
+<span class="o">|</span>     Line breaks and initial indents
+<span class="o">|</span>     are preserved.
+<span class="o">|</span> Continuation lines are wrapped
+</pre></div>
+<p>Result :</p>
+<div class="line-block">
+<div class="line">Line blocks are useful for addresses,</div>
+<div class="line">verse, and adornment-free lists.</div>
+<div class="line"><br /></div>
+<div class="line">Each new line begins with a</div>
+<div class="line">vertical bar (&quot;|&quot;).</div>
+<div class="line-block">
+<div class="line">Line breaks and initial indents</div>
+<div class="line">are preserved.</div>
+</div>
+<div class="line">Continuation lines are wrapped</div>
+</div>
+<h2 id="tables">Tables</h2>
+<h3 id="grid-table">Grid table :</h3>
+<div class="highlight"><pre><span></span>+------------+------------+-----------+
+<span class="o">|</span> Header 1   | Header 2   | Header 3  |
++============+============+===========+
+<span class="o">|</span> body row 1 | column 2   | column 3  |
++------------+------------+-----------+
+<span class="o">|</span> body row 2 | Cells may span columns.|
++------------+------------+-----------+
+<span class="o">|</span> body row 3 | Cells may  | - Cells   |
++------------+ span rows. | - contain |
+<span class="o">|</span> body row 4 |            | - blocks. |
++------------+------------+-----------+
+</pre></div>
+<p>Result :</p>
+<table class="ui celled table">
+<thead>
+<tr><th class="head">Header 1</th>
+<th class="head">Header 2</th>
+<th class="head">Header 3</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>body row 1</td>
+<td>column 2</td>
+<td>column 3</td>
+</tr>
+<tr><td>body row 2</td>
+<td colspan="2">Cells may span columns.</td>
+</tr>
+<tr><td>body row 3</td>
+<td rowspan="2">Cells may
+span rows.</td>
+<td rowspan="2"><ul class="first last">
+<li>Cells</li>
+<li>contain</li>
+<li>blocks.</li>
+</ul>
+</td>
+</tr>
+<tr><td>body row 4</td>
+</tr>
+</tbody>
+</table>
+<h3 id="simple-table">Simple table :</h3>
+<div class="highlight"><pre><span></span>=====  =====  ======
+   Inputs     Output
+------------  ------
+  A      B    A or B
+=====  =====  ======
+False  False  False
+True   False  True
+False  True   True
+=====  =====  ======
+</pre></div>
+<p>Result :</p>
+<table class="ui celled table">
+<thead>
+<tr><th class="head" colspan="2">Inputs</th>
+<th class="head">Output</th>
+</tr>
+<tr><th class="head">A</th>
+<th class="head">B</th>
+<th class="head">A or B</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr><td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr><td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+<h2 id="interpreted-text-role-inline">Interpreted Text Role (inline)</h2>
+<h3 id="code">Code :</h3>
+<p><code>
+for i in range(10)</code>
+</p>
+<p><code class="python">
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span></code>
+</p>
+<p>If there just <em>has</em> to be a line break here,
+<span class="raw-html"><br /></span>
+it can be accomplished with a &quot;raw&quot;-derived role.
+But the line block syntax should be considered first.</p>
+<ul>
+<li>E = mc<sup>2</sup></li>
+</ul>
+<h3 id="math">math :</h3>
+<p>The math role marks its content as mathematical notation (inline formula).
+The input format is LaTeX math syntax without the “math delimiters“ ($ $), for example:</p>
+<p>Trigonometric functions : <span class="formula">cos(2<i>θ</i>) = cos<sup>2</sup><i>θ</i> − sin<sup>2</sup><i>θ</i></span></p>
+<h2 id="block-directive">Block Directive</h2>
+<h3 id="code-block">Code Block</h3>
+<div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> <span class="k">python</span>
+
+    <span class="nd">@task</span>
+    <span class="k">def</span> <span class="nf">build</span><span class="p">():</span>
+        <span class="sd">&quot;&quot;&quot;Build local version of site&quot;&quot;&quot;</span>
+        <span class="n">run</span><span class="p">(</span><span class="s1">&#39;pelican -s pelicanconf.py&#39;</span><span class="p">)</span>
+</pre></div>
+<p>Result :</p>
+<div class="highlight"><pre><span></span><span class="nd">@task</span>
+<span class="k">def</span> <span class="nf">build</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Build local version of site&quot;&quot;&quot;</span>
+    <span class="n">run</span><span class="p">(</span><span class="s1">&#39;pelican -s pelicanconf.py&#39;</span><span class="p">)</span>
+</pre></div>
+<p>Line Numbers :</p>
+<div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> python
+    <span class="nc">:linenos:</span> <span class="nf">table</span>
+
+    @task
+    def build():
+        &quot;&quot;&quot;Build local version of site&quot;&quot;&quot;
+        run(&#39;pelican -s pelicanconf.py&#39;)
+</pre></div>
+<p>Result :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@task</span>
+<span class="k">def</span> <span class="nf">build</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Build local version of site&quot;&quot;&quot;</span>
+    <span class="n">run</span><span class="p">(</span><span class="s1">&#39;pelican -s pelicanconf.py&#39;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">note</span><span class="p">::</span> This is a note admonition.
+   This is the second line of the first paragraph.
+
+   <span class="m">-</span> The note contains all indented body elements
+     following.
+   <span class="m">-</span> It includes this bullet list.
+</pre></div>
+<p>Result :</p>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p>This is a note admonition.
+This is the second line of the first paragraph.</p>
+<ul class="last">
+<li>The note contains all indented body elements
+following.</li>
+<li>It includes this bullet list.</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">figure</span><span class="p">::</span> https://snap-photos.s3.amazonaws.com/img-thumbs/960w/DLIRRCCYBR.jpg
+   <span class="nc">:scale:</span> <span class="nf">25 %</span>
+   <span class="nc">:alt:</span> <span class="nf">map to buried treasure</span>
+
+   This is the caption of the figure (a simple paragraph).
+</pre></div>
+<p>Result :</p>
+<div class="figure">
+<img alt="map to buried treasure" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/DLIRRCCYBR.jpg" />
+<p class="caption">This is the caption of the figure (a simple paragraph).</p>
+</div>
+<h2 id="other">Other</h2>
+<h3 id="substitution-references-and-definitions">Substitution References and Definitions</h3>
+<div class="highlight"><pre><span></span>Substitutions are like inline directives, allowing graphics and arbitrary constructs within text.
+
+The |biohazard| symbol must be used on containers used to dispose of medical waste.
+
+<span class="p">..</span> <span class="nt">|biohazard|</span> <span class="ow">image</span><span class="p">::</span> http://docutils.sourceforge.net/docs/user/rst/images/biohazard.png
+</pre></div>
+<p>Result :</p>
+<p>Substitutions are like inline directives, allowing graphics and arbitrary constructs within text.</p>
+<p>The <img alt="biohazard" src="http://docutils.sourceforge.net/docs/user/rst/images/biohazard.png" /> symbol must be used on containers used to dispose of medical waste.</p>
+<h3 id="transitions">Transitions</h3>
+<p>A transition marker is a horizontal line of 4 or more repeated punctuation characters.</p>
+<div class="highlight"><pre><span></span>----
+</pre></div>
+<p>Result :</p>
+<hr>
+<h3 id="comments">Comments :</h3>
+<div class="highlight"><pre><span></span><span class="cp">.. This text will not be shown</span>
+<span class="cp">   (but, for instance, in HTML might be</span>
+<span class="cp">   rendered as an HTML comment)</span>
+</pre></div>
+<p>Result :</p>
+<!-- This text will not be shown
+(but, for instance, in HTML might be
+rendered as an HTML comment) -->
+
+</article>
+</main>
+<footer class="ui inverted vertical footer segment">
+  <div class="ui center aligned container">
+    <address>
+      Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+    </address>
+  </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.0.0-beta1.min.js"></script>
+</body>
+</html>

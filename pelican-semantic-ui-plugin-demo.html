@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pelican Semantic Plugin Domo</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/reset.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/site.min.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/container.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/menu.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/segment.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/table.min.css" />
+
+  <link rel="stylesheet" href="http://yichiuan.github.io/pelican-semantic-ui/theme/css/pygment.css" />
+  <link rel="stylesheet" href="http://yichiuan.github.io/pelican-semantic-ui/theme/css/main.css" />
+
+</head>
+<body>
+<header class="ui borderless inverted menu">
+  <nav class="ui text container">
+    <a href="#" class="header item">Pelican Semantic Demo</a>
+      <a class="item" href="http://yichiuan.github.io/pelican-semantic-ui/category/demo.html">demo</a>
+  </nav>
+</header>
+<main class="ui text container">
+<article>
+  <header>
+    <h1>
+      <a href="http://yichiuan.github.io/pelican-semantic-ui/pelican-semantic-ui-plugin-demo.html" rel="bookmark" title="Permalink to Pelican Semantic Plugin Domo">Pelican Semantic Plugin Domo</a>
+    </h1>
+    <p>Posted on <time datetime="2016-04-08T00:00:00+08:00">2016-04-08</time> in <a href="http://yichiuan.github.io/pelican-semantic-ui/category/demo.html">demo</a></p>
+  </header>
+  <h2 id="tables">Tables</h2>
+<p>table directive with class option</p>
+<div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">table</span><span class="p">::</span>
+    <span class="nc">:class:</span> <span class="nf">ui very basic table</span>
+
+    =====  =====  ======
+      A      B    A or B
+    =====  =====  ======
+    False  False  False
+    True   False  True
+    =====  =====  ======
+</pre></div>
+<table class="ui very basic table">
+<thead>
+<tr><th class="head">A</th>
+<th class="head">B</th>
+<th class="head">A or B</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr><td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+</main>
+<footer class="ui inverted vertical footer segment">
+  <div class="ui center aligned container">
+    <address>
+      Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+    </address>
+  </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.0.0-beta1.min.js"></script>
+</body>
+</html>
