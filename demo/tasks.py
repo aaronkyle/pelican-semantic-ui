@@ -16,23 +16,23 @@ DEPLOY_PATH = 'output'
 PORT = 8000
 
 @task
-def clean():
+def clean(ctx):
     """Remove generated files"""
     if os.path.isdir(DEPLOY_PATH):
         shutil.rmtree(DEPLOY_PATH)
         os.makedirs(DEPLOY_PATH)
 
 @task
-def build():
+def build(ctx):
     """Build local version of site"""
-    run('pelican -s pelicanconf.py')
+    ctx.run('pelican -s pelicanconf.py')
 
 @task
-def production_build():
-    run('pelican -s publishconf.py')
+def production_build(ctx):
+    ctx.run('pelican -s publishconf.py')
 
 @task
-def serve():
+def serve(ctx):
     """Serve site at http://localhost:8000/"""
     os.chdir(DEPLOY_PATH)
 
@@ -45,10 +45,10 @@ def serve():
     server.serve_forever()
 
 @task
-def gh_pages():
+def gh_pages(ctx):
     """Publish to GitHub Pages"""
     clean()
     production_build()
 
-    run("ghp-import -b gh-pages output")
-    run("git push origin gh-pages")
+    ctx.run("ghp-import -b gh-pages output")
+    ctx.run("git push origin gh-pages")
